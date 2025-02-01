@@ -3,60 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>YouTube Premium</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/YouTube_Premium_logo.svg/2560px-YouTube_Premium_logo.svg.png" type="image/png">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            z-index: 1000;
         }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
+        .venta {
+            background-color: white;
+            border: 2px solid #ff0000;
+            border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
+            padding: 20px;
+            max-width: 500px; /* Ajuste del tamaño de la venta */
+            text-align: center;
             position: relative;
-            border: 1px solid #FF0000; /* Borde del color del logo de YouTube */
         }
-        .close-btn {
+        .venta p, .venta ul {
+            margin: 10px 0; /* Ajuste de margen para pegar más el texto al logo */
+            color: black; /* Texto en color negro */
+            font-size: 16px;
+            text-align: left; /* Alinear texto a la izquierda */
+        }
+        .header-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: black; /* Texto en color negro */
+            margin-top: 10px; /* Ajuste de margen superior */
+        }
+        .header-image {
+            width: 80%; /* Ajuste del tamaño de la imagen */
+            height: auto;
+            margin-bottom: 10px; /* Ajuste de margen inferior */
+        }
+        .botones {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .boton {
+            background-color: #ff0000; /* Color del botón de compras */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            animation: pulse 2s infinite; /* Añadir animación de titileo */
+        }
+        .close-button {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #ff5f5f;
+            background-color: red;
+            color: white;
             border: none;
-            color: #fff;
-            padding: 5px 10px;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
-            border-radius: 5px;
+            text-align: center;
+            line-height: 25px;
+            font-weight: bold;
         }
-        iframe {
-            width: 100%;
-            height: 600px;
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 5px #ff0000;
+            }
+            50% {
+                box-shadow: 0 0 20px #ff0000;
+            }
+            100% {
+                box-shadow: 0 0 5px #ff0000;
+            }
         }
         @media (max-width: 768px) {
-            .container {
+            .overlay {
+                align-items: flex-start; /* Alinear el contenido hacia arriba en móvil */
+            }
+            .venta {
                 width: 100%;
                 height: 100vh;
                 margin: 0;
                 border-radius: 0;
+                padding: 10px;
             }
-            iframe {
-                height: 80vh;
+            .close-button {
+                top: 5px; /* Ajustar el botón en móvil */
+                right: 5px;
             }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <button class="close-btn" onclick="window.location.href='https://www.vendeygana.net/user/'">X</button>
-        <iframe src="https://fluidforms.co/embed/form?id=679e2df5b3d650eb44e94cbd" frameborder="0"></iframe>
+<body onload="openModal()">
+    <div class="overlay" id="overlay">
+        <div class="venta">
+            <button class="close-button" onclick="window.location.href='https://www.vendeygana.net/user/'">X</button>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/YouTube_Premium_logo.svg/2560px-YouTube_Premium_logo.svg.png" alt="YouTube Premium" class="header-image">
+            <div class="header-title">📺 Descubre YouTube Premium: La mejor experiencia de video.</div>
+            <p>🌟 <strong>Ventajas de YouTube Premium:</strong></p>
+            <ul>
+                <li>• Sin Anuncios: Disfruta de videos sin interrupciones.</li>
+                <li>• Reproducción en Segundo Plano: Sigue escuchando mientras usas otras apps.</li>
+                <li>• Descargas: Guarda tus videos favoritos y míralos sin conexión.</li>
+                <li>• YouTube Music: Acceso a millones de canciones y playlists.</li>
+            </ul>
+            <p>📲 Compra tu cuenta hoy con Vende y Gana y lleva tu experiencia de YouTube al siguiente nivel. 🎥🎵</p>
+            <div class="botones">
+                <button class="boton" onclick="window.location.href='https://vendeygana2.github.io/compraryotubepremium/'">Comprar</button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('overlay').style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
 
